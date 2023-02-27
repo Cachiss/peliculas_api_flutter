@@ -28,6 +28,7 @@ class Pelicula {
   bool? adult;
   String? overview;
   String? releaseDate;
+  String? uniqueId;
 
   Pelicula({
     this.voteCount,
@@ -44,6 +45,7 @@ class Pelicula {
     this.adult,
     this.overview,
     this.releaseDate,
+    this.uniqueId,
   });
 
   Pelicula.fromJsonMap(Map<String, dynamic> json) {
@@ -61,6 +63,7 @@ class Pelicula {
     adult = json['adult'];
     overview = json['overview'];
     releaseDate = json['release_date'];
+    uniqueId = '$id-Poster';
   }
 
   // metodo para el poster de la peli
@@ -69,6 +72,14 @@ class Pelicula {
       return 'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png';
     } else {
       return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
+  }
+
+  getBackdropPath() {
+    if (backdropPath == null) {
+      return 'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$backdropPath';
     }
   }
 }

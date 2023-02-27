@@ -62,7 +62,7 @@ class MovieHorizontal extends StatelessWidget {
   //método que retorna una osla tarjeta a la vez
 
   Widget _crearTarjeta(BuildContext context, Pelicula pelicula) {
-    return Container(
+    final tarjeta = Container(
       margin: const EdgeInsets.only(right: 15.0),
       child: Column(
         children: [
@@ -83,6 +83,12 @@ class MovieHorizontal extends StatelessWidget {
           ),
         ],
       ),
+    );
+    return GestureDetector(
+      child: tarjeta,
+      onTap: () {
+        Navigator.pushNamed(context, 'detalle', arguments: pelicula);
+      },
     );
   }
 }
